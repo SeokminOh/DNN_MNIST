@@ -11,7 +11,7 @@ TRAINING_RATIO = 0.9
 # VALIDATION_RATIO = 0.1
 
 def build_parser():
-    parser = ArgumentParser(description='Code Template')
+    parser = ArgumentParser()
     # directory
     # parser.add_argument('-data', '--data-dir', type=str, dest='data_dir',
     #                     help='dir to read data from', required=True)

@@ -6,14 +6,10 @@ from utils import *
 # Sets the threshold for what messages will be logged.
 tf.logging.set_verbosity(tf.logging.ERROR)
 
+# Set the number of evaluation
 BATCH_SIZE = 1
+# Fix random state
 RANDOM_STATE = 42
-
-# to make this notebook's output stable across runs
-def reset_graph(seed=RANDOM_STATE):
-    tf.reset_default_graph()
-    tf.set_random_seed(seed)
-    np.random.seed(seed)
 
 def preprocess_test():
     # Data Preparation

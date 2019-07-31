@@ -4,7 +4,7 @@ import types
 from utils import *
 from model import DNN
 
-# A bit hacky, to remove warning TF2.0 message
+# A bit hacky, to remove TF2.0 warning message
 if type(tf.contrib) != types.ModuleType:
     tf.contrib._warning = None
 # Sets the threshold for what messages will be logged.
@@ -14,12 +14,6 @@ tf.logging.set_verbosity(tf.logging.ERROR)
 HEIGHT, WIDTH = 28, 28
 # Fix random state
 RANDOM_STATE = 42
-
-# to make this notebook's output stable across runs
-def reset_graph(seed=RANDOM_STATE):
-    tf.reset_default_graph()
-    tf.set_random_seed(seed)
-    np.random.seed(seed)
 
 def preprocess(train_ratio=0.9):
     # Data Preparation
@@ -62,8 +56,6 @@ def optimize(X_train, y_train, X_val, y_val,
         shuffled_indices = np.random.permutation(X_train.shape[0])
         indices = shuffled_indices[batch_size * iteration: batch_size * (iteration + 1)]
         return X_train[indices, :], y_train[indices]
-
-    reset_graph()
 
     dnn = DNN(
         height=HEIGHT,
