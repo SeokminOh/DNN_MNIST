@@ -38,7 +38,6 @@ def preprocess_test():
 def restore(checkpoint, X_test, y_test, batch_size=1):
     # Model Restoration
     # ==================================================
-    reset_graph()
 
     with tf.Session() as sess:
         saver = tf.train.import_meta_graph('{}.meta'.format(checkpoint))
